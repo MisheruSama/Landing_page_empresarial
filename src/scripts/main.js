@@ -10,10 +10,21 @@ document.addEventListener('DOMContentLoaded', () => {
     nav.classList.add('scrolled');
   }
   
-  // Aguarda um pouco para garantir que o ScrollReveal carregue
-  setTimeout(() => {
-    initScrollReveal(initialScrollY);
-  }, 100);
+  // Força visibilidade no mobile imediatamente
+  if (window.innerWidth <= 768) {
+    const allElements = document.querySelectorAll('.title__left, .title__right, .text__left, .text__right, .left__msg, .right__msg, .saiba, .nav__left, .nav__right, .nav-logo');
+    allElements.forEach(el => {
+      el.style.visibility = 'visible';
+      el.style.opacity = '1';
+      el.style.transform = 'none';
+      el.style.display = '';
+    });
+  } else {
+    // Só inicia animações em desktop
+    setTimeout(() => {
+      initScrollReveal(initialScrollY);
+    }, 100);
+  }
 });
 
 // ==================== MENU MOBILE ====================
@@ -57,23 +68,7 @@ window.addEventListener('scroll', () => {
 
 // ==================== SCROLL REVEAL ====================
 function initScrollReveal(initialScrollY = 0) {
-  // Detecta se está no mobile
-  const isMobile = window.innerWidth <= 768;
-  
-  // Se for mobile, mostra todos os elementos imediatamente sem animações
-  if (isMobile) {
-    const allElements = document.querySelectorAll('.title__left, .title__right, .text__left, .text__right, .left__msg, .right__msg, .saiba, .nav__left, .nav__right, .nav-logo');
-    
-    allElements.forEach(el => {
-      el.style.visibility = 'visible';
-      el.style.opacity = '1';
-      el.style.transform = 'none';
-    });
-    
-    return; // Sai da função sem aplicar animações
-  }
-
-  // A partir daqui, só executa em desktop
+  // Esta função só executa em desktop (já verificado antes da chamada)
   // Configurações do ScrollReveal
   const scrollRevealOption = {
     distance: '50px',
@@ -242,5 +237,21 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.section').forEach(section => {
   observer.observe(section);
+});
+
+// ==================== GARANTIA PARA MOBILE ====================
+// Verificação adicional para garantir que mobile funcione
+window.addEventListener('load', () => {
+  if (window.innerWidth <= 768) {
+    // Força todos os elementos principais a ficarem visíveis no mobile
+    const criticalElements = document.querySelectorAll('.title__left, .title__right, .text__left, .text__right, .left__msg, .right__msg, .saiba, .nav__left, .nav__right, .nav-logo');
+    
+    criticalElements.forEach(el => {
+      el.style.setProperty('visibility', 'visible', 'important');
+      el.style.setProperty('opacity', '1', 'important');
+      el.style.setProperty('transform', 'none', 'important');
+      el.style.setProperty('display', '', 'important');
+    });
+  }
 });
 

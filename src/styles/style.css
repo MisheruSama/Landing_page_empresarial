@@ -79,6 +79,19 @@ body::before {
   }
 }
 
+/* Força visibilidade no mobile */
+@media (max-width: 768px) {
+  .title__left, .title__right, 
+  .text__left, .text__right, 
+  .left__msg, .right__msg, 
+  .saiba,
+  .nav__left, .nav__right, .nav-logo {
+    visibility: visible !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
 /* ==================== NAVBAR ==================== */
 nav {
   padding: 2rem 2rem;
