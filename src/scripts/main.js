@@ -57,6 +57,23 @@ window.addEventListener('scroll', () => {
 
 // ==================== SCROLL REVEAL ====================
 function initScrollReveal(initialScrollY = 0) {
+  // Detecta se está no mobile
+  const isMobile = window.innerWidth <= 768;
+  
+  // Se for mobile, mostra todos os elementos imediatamente sem animações
+  if (isMobile) {
+    const allElements = document.querySelectorAll('.title__left, .title__right, .text__left, .text__right, .left__msg, .right__msg, .saiba, .nav__left, .nav__right, .nav-logo');
+    
+    allElements.forEach(el => {
+      el.style.visibility = 'visible';
+      el.style.opacity = '1';
+      el.style.transform = 'none';
+    });
+    
+    return; // Sai da função sem aplicar animações
+  }
+
+  // A partir daqui, só executa em desktop
   // Configurações do ScrollReveal
   const scrollRevealOption = {
     distance: '50px',

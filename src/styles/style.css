@@ -65,15 +65,15 @@ body::before {
 }
 
 /* ==================== PREVENÇÃO DE FLASH DAS ANIMAÇÕES ==================== */
-.title__left, .title__right, 
-.text__left, .text__right, 
-.left__msg, .right__msg, 
-.saiba {
-  visibility: hidden;
-}
-
-/* Esconde elementos da navbar apenas em desktop para animação */
+/* Esconde elementos apenas em desktop para animação */
 @media (min-width: 769px) {
+  .title__left, .title__right, 
+  .text__left, .text__right, 
+  .left__msg, .right__msg, 
+  .saiba {
+    visibility: hidden;
+  }
+
   .nav__left, .nav__right, .nav-logo {
     visibility: hidden;
   }
