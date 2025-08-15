@@ -1293,11 +1293,11 @@ nav.scrolled .menu-toggle .dot {
   
   /* Layout mobile - reorganiza os títulos */
   .title__left {
-    transform: translate(calc(-50% - 65px), -80%);
+    transform: translate(calc(-50% - 65px), -60%);
   }
   
   .title__right {
-    transform: translate(calc(-50% + 65px), -80%);
+    transform: translate(calc(-50% + 65px), -60%);
   }
   
   .text__left {
