@@ -10,37 +10,98 @@ document.addEventListener('DOMContentLoaded', () => {
     nav.classList.add('scrolled');
   }
   
-  // Aguarda um pouco para garantir que o ScrollReveal carregue
-  setTimeout(() => {
-    initScrollReveal(initialScrollY);
-  }, 100);
+  // Configura o menu mobile primeiro
+  setupMobileMenu();
+  
+  // Força visibilidade no mobile imediatamente mas com animações rápidas
+  if (window.innerWidth <= 768) {
+    // No mobile, inicia ScrollReveal com delays muito menores
+    setTimeout(() => {
+      initScrollRevealMobile();
+    }, 50);
+    
+    // Para navbar no mobile, força apenas os links, não o menu-toggle
+    const navLinks = document.querySelectorAll('.nav__left, .nav__right');
+    navLinks.forEach(el => {
+      el.style.visibility = 'visible';
+      el.style.opacity = '1';
+      el.style.transform = 'none';
+    });
+    
+    // Garante que o logo também seja visível
+    const navLogo = document.querySelector('.nav-logo');
+    if (navLogo) {
+      navLogo.style.visibility = 'visible';
+      navLogo.style.opacity = '1';
+      navLogo.style.transform = 'none';
+    }
+  } else {
+    // Só inicia animações em desktop
+    setTimeout(() => {
+      initScrollReveal(initialScrollY);
+    }, 100);
+  }
 });
 
 // ==================== MENU MOBILE ====================
-const mobileMenu = document.getElementById('mobile-menu');
-const navMenu = document.getElementById('nav-menu');
+function setupMobileMenu() {
+  const mobileMenu = document.getElementById('mobile-menu');
+  const navMenu = document.getElementById('nav-menu');
 
-// Toggle do menu mobile
-mobileMenu.addEventListener('click', () => {
-  mobileMenu.classList.toggle('active');
-  navMenu.classList.toggle('active');
-});
-
-// Fecha o menu quando clica em um link
-document.querySelectorAll('.nav__links a').forEach(link => {
-  link.addEventListener('click', () => {
-    mobileMenu.classList.remove('active');
-    navMenu.classList.remove('active');
-  });
-});
-
-// Fecha o menu quando clica fora dele
-document.addEventListener('click', (e) => {
-  if (!navMenu.contains(e.target) && !mobileMenu.contains(e.target)) {
-    mobileMenu.classList.remove('active');
-    navMenu.classList.remove('active');
+  // Verifica se os elementos foram encontrados
+  if (!mobileMenu || !navMenu) {
+    console.error('Elementos do menu mobile não encontrados:', {
+      mobileMenu: !!mobileMenu,
+      navMenu: !!navMenu
+    });
+    return;
   }
-});
+
+  console.log('Menu mobile configurado com sucesso');
+
+  // Remove qualquer listener anterior
+  mobileMenu.removeEventListener('click', toggleMenu);
+  
+  // Adiciona o listener
+  mobileMenu.addEventListener('click', toggleMenu);
+  mobileMenu.addEventListener('touchstart', toggleMenu); // Para dispositivos touch
+
+  function toggleMenu(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    console.log('Menu clicado/tocado'); // Debug
+    
+    const isActive = navMenu.classList.contains('active');
+    
+    if (isActive) {
+      mobileMenu.classList.remove('active');
+      navMenu.classList.remove('active');
+      console.log('Menu fechado');
+    } else {
+      mobileMenu.classList.add('active');
+      navMenu.classList.add('active');
+      console.log('Menu aberto');
+    }
+  }
+
+  // Fecha o menu quando clica em um link
+  document.querySelectorAll('.nav__links a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('active');
+      navMenu.classList.remove('active');
+      console.log('Menu fechado via link');
+    });
+  });
+
+  // Fecha o menu quando clica fora dele
+  document.addEventListener('click', (e) => {
+    if (!navMenu.contains(e.target) && !mobileMenu.contains(e.target)) {
+      mobileMenu.classList.remove('active');
+      navMenu.classList.remove('active');
+    }
+  });
+}
 
 // ==================== NAVBAR FIXA ====================
 // Controla o fundo da navbar ao rolar a tela
@@ -55,7 +116,53 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// ==================== SCROLL REVEAL ====================
+// ==================== SCROLL REVEAL MOBILE ====================
+function initScrollRevealMobile() {
+  // Configurações do ScrollReveal para mobile - mais parecido com desktop
+  const scrollRevealOption = {
+    distance: '50px', // Igual ao desktop
+    origin: 'bottom',
+    duration: 1000, // Igual ao desktop
+  };
+
+  // Torna os elementos visíveis para o ScrollReveal funcionar
+  const elementsToReveal = document.querySelectorAll('.title__left, .title__right, .text__left, .text__right, .left__msg, .right__msg, .saiba');
+  elementsToReveal.forEach(el => {
+    el.style.visibility = 'visible';
+  });
+
+  // Animações mobile - parecidas com desktop mas com delays menores
+  ScrollReveal().reveal(".container .title__left, .text__left", {
+    ...scrollRevealOption,
+    origin: 'right',
+    delay: 500 // Era 1000 no desktop
+  });
+
+  ScrollReveal().reveal(".container .title__right, .text__right", {
+    ...scrollRevealOption,
+    origin: 'left',
+    delay: 500 // Era 1000 no desktop
+  });
+
+  ScrollReveal().reveal(".container .saiba", {
+    duration: 1000, // Igual ao desktop
+    delay: 1200 // Era 2500 no desktop
+  });
+
+  ScrollReveal().reveal(".container .left__msg", {
+    ...scrollRevealOption,
+    origin: 'right',
+    delay: 700 // Era 1500 no desktop
+  });
+
+  ScrollReveal().reveal(".container .right__msg", {
+    ...scrollRevealOption,
+    origin: 'left',
+    delay: 700 // Era 1500 no desktop
+  });
+}
+
+// ==================== SCROLL REVEAL DESKTOP ====================
 function initScrollReveal(initialScrollY = 0) {
   // Configurações do ScrollReveal
   const scrollRevealOption = {

@@ -72,8 +72,11 @@ body::before {
   visibility: hidden;
 }
 
-.nav__left, .nav__right, .nav-logo {
-  visibility: hidden;
+/* Esconde elementos da navbar apenas em desktop para animação */
+@media (min-width: 769px) {
+  .nav__left, .nav__right, .nav-logo {
+    visibility: hidden;
+  }
 }
 
 /* ==================== NAVBAR ==================== */
@@ -109,7 +112,7 @@ nav.scrolled .nav__right a {
   color: var(--text-dark);
 }
 
-nav.scrolled .menu-toggle .bar {
+nav.scrolled .menu-toggle .dot {
   background-color: var(--text-dark);
 }
 
@@ -123,25 +126,33 @@ nav.scrolled .menu-toggle .bar {
   width: auto;
 }
 
-/* Botão de menu mobile */
+/* Botão de menu mobile - ícone de grade */
 .menu-toggle {
   display: none;
-  flex-direction: column;
+  flex-wrap: wrap;
   justify-content: space-between;
+  align-content: space-between;
   cursor: pointer;
   z-index: 1002;
   position: relative;
-  width: 40px;
-  height: 20px;
-  padding: 5px;
+  width: 30px;
+  height: 30px;
+  padding: 4px;
+  /* Área de clique maior para mobile */
+  min-width: 44px;
+  min-height: 44px;
+  background: transparent;
+  border: none;
+  outline: none;
 }
 
-.menu-toggle .bar {
-  width: 100%;
+.menu-toggle .dot {
+  width: 8px;
   height: 8px;
   background-color: var(--white);
-  border-radius: 1px;
+  border-radius: 2px;
   display: block;
+  pointer-events: none; /* Evita que o clique seja interceptado pelos pontos */
 }
 
 /* Menu de navegação */
@@ -1206,8 +1217,8 @@ nav.scrolled .menu-toggle .bar {
     margin-right: 1rem;
   }
   
-  /* Garante que as barras sejam visíveis */
-  .menu-toggle .bar {
+  /* Garante que os pontos sejam visíveis */
+  .menu-toggle .dot {
     background-color: var(--white);
     box-shadow: 0 1px 2px rgba(0,0,0,0.1);
   }
@@ -1430,5 +1441,22 @@ nav.scrolled .menu-toggle .bar {
   .section {
     margin: 2rem 0.5rem;
     padding: 1.5rem 1rem;
+  }
+  
+  /* Força visibilidade apenas dos elementos da navbar no mobile */
+  /* Os elementos principais (.title, .text, etc) ficam com visibility: hidden para a animação funcionar */
+  
+  /* Navbar no mobile - elementos sempre visíveis */
+  .nav-logo {
+    visibility: visible !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  
+  .menu-toggle {
+    visibility: visible !important;
+    opacity: 1 !important;
+    transform: none !important;
+    display: flex !important;
   }
 }
