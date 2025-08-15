@@ -3,21 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    
+    <!-- SEO Meta Tags -->
+    <title>Mundial Marcas e Patentes | Registro de Marcas e Patentes em Curitiba-PR</title>
+    <meta name="description" content="Mundial Marcas e Patentes - Mais de 40 anos de experiência em registro de marcas e patentes. Agente de propriedade industrial INPI. Atendimento online personalizado e Seguro Aprovação exclusivo.">
+    <meta name="keywords" content="registro de marcas, registro de patentes, propriedade intelectual, INPI, agente de propriedade industrial, marcas e patentes curitiba, direitos autorais, consulta viabilidade">
+    <meta name="author" content="Mundial Marcas e Patentes">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="pt-BR">
+    <meta name="geo.region" content="BR-PR">
+    <meta name="geo.placename" content="Curitiba">
+    <meta name="geo.position" content="-25.4284;-49.2733">
+    <meta name="ICBM" content="-25.4284, -49.2733">
+    
+    <!-- Open Graph Meta Tags (Facebook, LinkedIn) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Mundial Marcas e Patentes | Registro de Marcas e Patentes">
+    <meta property="og:description" content="Mais de 40 anos protegendo seu patrimônio intelectual. Registro de marcas e patentes com Seguro Aprovação e atendimento em até 12 horas.">
+    <meta property="og:url" content="https://registrodemarcapro.com.br">
+    <meta property="og:site_name" content="Mundial Marcas e Patentes">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:image" content="https://registrodemarcapro.com.br/imagens/logo_mundial.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Logo Mundial Marcas e Patentes">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Mundial Marcas e Patentes | Registro de Marcas e Patentes">
+    <meta name="twitter:description" content="Mais de 40 anos protegendo seu patrimônio intelectual. Registro de marcas e patentes com Seguro Aprovação.">
+    <meta name="twitter:image" content="https://registrodemarcapro.com.br/imagens/logo_mundial.png">
+    <meta name="twitter:image:alt" content="Logo Mundial Marcas e Patentes">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://registrodemarcapro.com.br">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="imagens/logo_mundial.png">
+    <link rel="apple-touch-icon" href="imagens/logo_mundial.png">
+    
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Mundial Marcas e Patentes",
+      "alternateName": "L & A Marcas e Patentes Ltda",
+      "url": "https://registrodemarcapro.com.br",
+      "logo": "https://registrodemarcapro.com.br/imagens/logo_mundial.png",
+      "foundingDate": "2015-12-23",
+      "founder": {
+        "@type": "Person",
+        "name": "Hélio Leandro de Oliveira"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Curitiba",
+        "addressRegion": "PR",
+        "addressCountry": "BR"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+55-41-96585815",
+        "contactType": "customer service",
+        "availableLanguage": "Portuguese"
+      },
+      "sameAs": [
+        "https://www.facebook.com/mundialmarcasepatentes",
+        "https://www.instagram.com/mundialmarcasepatentes"
+      ],
+      "description": "Agente de propriedade industrial especializado em registro de marcas e patentes junto ao INPI, com mais de 40 anos de experiência e Seguro Aprovação exclusivo.",
+      "serviceArea": {
+        "@type": "Country",
+        "name": "Brasil"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Serviços de Propriedade Intelectual",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Registro de Marcas",
+              "description": "Registro de marcas junto ao INPI com Seguro Aprovação"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Registro de Patentes",
+              "description": "Registro de patentes de invenção e modelo de utilidade"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Registro de Direitos Autorais",
+              "description": "Proteção de obras intelectuais e direitos autorais"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Consulta de Viabilidade",
+              "description": "Análise de viabilidade para registro de marcas e patentes"
+            }
+          }
+        ]
+      }
+    }
+    </script>
+    
     <link rel="stylesheet" href="styles/style.css">
-    <title>Mundial | Marcas e Patentes</title>
 </head>
 <body>
     <!-- Navbar fora do container para garantir z-index correto -->
-    <nav>
+    <nav role="navigation" aria-label="Menu principal">
         <!-- Logo sempre visível -->
         <div class="nav-logo">
-            <a href="#" class="logo">
-                <img src="imagens/logo_mundial.png" alt="Logo Mundial" class="logo-mundial">
+            <a href="#" class="logo" aria-label="Mundial Marcas e Patentes - Página inicial">
+                <img src="imagens/logo_mundial.png" alt="Logo Mundial Marcas e Patentes - Agente de Propriedade Industrial" class="logo-mundial">
             </a>
         </div>
         
         <!-- Botão de menu mobile -->
-        <div class="menu-toggle" id="mobile-menu">
+        <div class="menu-toggle" id="mobile-menu" role="button" aria-label="Abrir menu de navegação" tabindex="0">
             <div class="menu-icon">
                 <span class="dot"></span>
                 <span class="dot"></span>
@@ -30,19 +144,20 @@
         <!-- Menu de navegação -->
         <div class="nav-menu" id="nav-menu">
             <ul class="nav__links nav__left">
-                <li><a href="#quem">Quem Somos</a></li>
-                <li><a href="#servicos">Serviços</a></li>
-                <li><a href="#historia">Nossa História</a></li>
+                <li><a href="#quem" aria-label="Ir para seção Quem Somos">Quem Somos</a></li>
+                <li><a href="#servicos" aria-label="Ir para seção Serviços">Serviços</a></li>
+                <li><a href="#historia" aria-label="Ir para seção Nossa História">Nossa História</a></li>
+                <li><a href="#contrato" aria-label="Ir para seção Contrato">Registrar Marca</a></li>
             </ul>
             <ul class="nav__links nav__right">
-                <li><a href="https://www.facebook.com/mundialmarcasepatentes/?locale=pt_BR">Facebook</a></li>
-                <li><a href="https://www.instagram.com/mundialmarcasepatentes">Instagram</a></li>
-                <li><a href="#feedbacks">Feedbacks</a></li>
+                <li><a href="https://www.facebook.com/mundialmarcasepatentes/?locale=pt_BR" target="_blank" rel="noopener noreferrer" aria-label="Visite nossa página no Facebook">Facebook</a></li>
+                <li><a href="https://www.instagram.com/mundialmarcasepatentes" target="_blank" rel="noopener noreferrer" aria-label="Visite nosso perfil no Instagram">Instagram</a></li>
+                <li><a href="#feedbacks" aria-label="Ir para seção Feedbacks">Feedbacks</a></li>
             </ul>
         </div>
     </nav>
 
-    <div class="container">
+    <header class="container" role="banner">
         <!-- Título principal responsivo -->
         <h1 class="title__left">MUN</h1>
         <h1 class="title__right">DIAL</h1>
@@ -50,16 +165,17 @@
         <span class="text__right">PATENTES</span>
 
         <!-- Mensagens inferiores -->
-        <h5 class="left__msg">SEJA DONO D</h5>
-        <h5 class="right__msg">A SUA MARCA</h5>
+        <h2 class="left__msg">SEJA DONO D</h2>
+        <h2 class="right__msg">A SUA MARCA</h2>
 
         <!-- Botão saiba mais -->
-        <button class="btn saiba" href="#contrato">CONTRATE AGORA</button> 
-    </div>
+        <button class="btn saiba" href="#contrato" aria-label="Contratar serviços da Mundial Marcas e Patentes">CONTRATE AGORA</button> 
+    </header>
 
     <!-- Seções -->
-    <section id="quem" class="section">
-        <h2>Quem Somos</h2>
+    <main role="main">
+        <section id="quem" class="section" aria-labelledby="quem-titulo">
+            <h2 id="quem-titulo">Quem Somos</h2>
         <div class="section-content">
             <p>
                 A Mundial Marcas e Patentes é uma referência confiável e experiente no mundo do registro de marcas e patentes, com mais de 40 anos de compromisso com a proteção dos interesses dos nossos clientes, somos uma equipe apaixonada por ajudar você a alcançar seus objetivos, cada membro da nossa equipe compartilha um compromisso com a sua satisfação e sucesso, aliás, acreditamos que o seu sucesso é o nosso sucesso.
@@ -67,8 +183,8 @@
         </div>
     </section>
 
-    <section id="servicos" class="section">
-        <h2>Serviços</h2>
+    <section id="servicos" class="section" aria-labelledby="servicos-titulo">
+        <h2 id="servicos-titulo">Serviços</h2>
         <div class="section-content">
             <ul>
                 <li>Registro de Marcas</li>
@@ -81,8 +197,8 @@
         </div>
     </section>
 
-    <section id="historia" class="section">
-        <h2>Nossa História</h2>
+    <section id="historia" class="section" aria-labelledby="historia-titulo">
+        <h2 id="historia-titulo">Nossa História</h2>
         <p>
             Fundada em 23 de dezembro de 2015 em Curitiba-PR, a Mundial Marcas e Patentes (L & A Marcas e Patentes Ltda) nasceu com o propósito de descomplicar e proteger o patrimônio intelectual de seus clientes. Desde o início, atua como agente de propriedade industrial, prestando serviços de registro de marcas e patentes junto ao INPI.
         </p>
@@ -94,65 +210,155 @@
         </p>
     </section>
 
-    <section id="feedbacks" class="section">
-        <h2>O que nossos clientes dizem</h2>
+    <section id="feedbacks" class="section" aria-labelledby="feedbacks-titulo">
+        <h2 id="feedbacks-titulo">O que nossos clientes dizem</h2>
         <div class="feedbacks-container">
 
             <!-- Feedback 2 - Substitua pelo feedback real -->
-            <div class="feedback-card">
-                <div class="feedback-stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
+            <article class="feedback-card" itemscope itemtype="https://schema.org/Review">
+                <div class="feedback-stars" aria-label="Avaliação: 5 de 5 estrelas">
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i>
                 </div>
-                <p class="feedback-text">
+                <p class="feedback-text" itemprop="reviewBody">
                     <!-- SUBSTITUA este texto pelo feedback real do Facebook/Instagram -->
                    Excelente trabalho, solucionou todos os meus problemas e me trouxe mais segurança para meu negócio. RECOMENDO!!!!!"
                 </p>
-                <div class="feedback-author">
-                    <strong>Alisson Ribeiro</strong>
-                    <span>São Paulo - SP</span>
+                <div class="feedback-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+                    <strong itemprop="name">Alisson Ribeiro</strong>
+                    <span itemprop="address">São Paulo - SP</span>
                 </div>
-            </div>
+                <meta itemprop="ratingValue" content="5">
+                <meta itemprop="bestRating" content="5">
+            </article>
 
             <!-- Feedback 3 - Substitua pelo feedback real -->
-            <div class="feedback-card">
-                <div class="feedback-stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
+            <article class="feedback-card" itemscope itemtype="https://schema.org/Review">
+                <div class="feedback-stars" aria-label="Avaliação: 5 de 5 estrelas">
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i>
                 </div>
-                <p class="feedback-text">
+                <p class="feedback-text" itemprop="reviewBody">
                     <!-- SUBSTITUA este texto pelo feedback real do Facebook/Instagram -->
                     Super recomendo. Atendimento excelente com ótimos profissionais e todos os processos foram esclarecidos. Obrigada.
                 </p>
-                <div class="feedback-author">
-                    <strong>Ana Linda</strong>
-                    <span>Curitiba-PR</span>
+                <div class="feedback-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+                    <strong itemprop="name">Ana Linda</strong>
+                    <span itemprop="address">Curitiba-PR</span>
                 </div>
-            </div>
+                <meta itemprop="ratingValue" content="5">
+                <meta itemprop="bestRating" content="5">
+            </article>
 
             <!-- Adicione mais cards conforme necessário -->
         </div>
     </section>
 
-    <section id="contrato" class="section">
-        <h2>Faça seu Orçamento</h2>
+    <section id="contrato" class="section" aria-labelledby="contrato-titulo">
+        <h2 id="contrato-titulo">Faça seu Orçamento</h2>
         <div class="section-content">
             <div class="contato-buttons">
-                <a href="https://wa.me/554196585815?text=Olá,%20gostaria%20de%20fazer%20uma%20consulta" target="_blank" class="whatsapp">
+                <a href="https://wa.me/554196585815?text=Olá,%20gostaria%20de%20fazer%20uma%20consulta" target="_blank" rel="noopener noreferrer" class="whatsapp" aria-label="Entrar em contato via WhatsApp">
                   Consultar pelo WhatsApp
                 </a>
-                <a href="#" onclick="enviarEmail()" class="email">
+                <a href="#" onclick="enviarEmail()" class="email" aria-label="Entrar em contato por email">
                   Consultar por E-mail
                 </a>
             </div>
         </div>
     </section>
+    </main>
+
+    <!-- Footer SEO Otimizado -->
+    <footer role="contentinfo" itemscope itemtype="https://schema.org/Organization">
+        <div class="footer-container">
+            <div class="footer-main">
+                <!-- Seção da Marca -->
+                <div class="footer-brand">
+                    <div class="footer-brand-header">
+                        <img src="imagens/logo_mundial.png" alt="Mundial Marcas e Patentes Logo" class="footer-logo">
+                        <h3 itemprop="name">Mundial Marcas e Patentes</h3>
+                    </div>
+                    <p itemprop="description">
+                        Agente de propriedade industrial especializado em registro de marcas e patentes junto ao INPI.
+                    </p>
+                    <div class="footer-certifications">
+                        <span>🏛️ Agente INPI</span>
+                        <span>🛡️ Seguro Aprovação</span>
+                    </div>
+                </div>
+
+                <!-- Seção de Links -->
+                <div class="footer-links-section">
+                    <div class="footer-column">
+                        <h4>Serviços</h4>
+                        <ul>
+                            <li><a href="#servicos" title="Registro de Marcas no INPI">Registro de Marcas</a></li>
+                            <li><a href="#servicos" title="Registro de Patentes no INPI">Registro de Patentes</a></li>
+                            <li><a href="#servicos" title="Proteção de Direitos Autorais">Direitos Autorais</a></li>
+                            <li><a href="#servicos" title="Consulta de Viabilidade de Marca">Consulta de Viabilidade</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4>Links Rápidos</h4>
+                        <ul>
+                            <li><a href="#quem" title="Conheça a Mundial Marcas e Patentes">Quem Somos</a></li>
+                            <li><a href="#historia" title="Nossa História desde 2015">Nossa História</a></li>
+                            <li><a href="#feedbacks" title="Depoimentos de Clientes">Feedbacks</a></li>
+                            <li><a href="#contrato" title="Solicite seu orçamento">Orçamento</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Seção de Contato -->
+                <div class="footer-contact" itemprop="contactPoint" itemscope itemtype="https://schema.org/ContactPoint">
+                    <h4>Contato</h4>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                        <span itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+                            <span itemprop="addressLocality">Curitiba</span>, 
+                            <span itemprop="addressRegion">PR</span>
+                        </span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope" aria-hidden="true"></i>
+                        <a href="mailto:juridico@registrodemarcapro.com.br" itemprop="email">
+                            juridico@registrodemarcapro.com.br
+                        </a>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/mundialmarcasepatentes" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook">
+                            <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://www.instagram.com/mundialmarcasepatentes" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram">
+                            <i class="fab fa-instagram" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="footer-bottom">
+                <p>&copy; 2025 Mundial Marcas e Patentes - L & A Marcas e Patentes Ltda | Agente de Propriedade Industrial</p>
+            </div>
+        </div>
+
+        <!-- Schema.org dados ocultos -->
+        <div style="display: none;">
+            <span itemprop="url">https://registrodemarcapro.com.br</span>
+            <span itemprop="logo">https://registrodemarcapro.com.br/imagens/logo_mundial.png</span>
+            <span itemprop="foundingDate">2015-12-23</span>
+            <span itemprop="legalName">L & A Marcas e Patentes Ltda</span>
+        </div>
+    </footer>
 
 <script src="https://unpkg.com/scrollreveal"></script>
 <script src="scripts/main.js"></script>
@@ -162,7 +368,7 @@
 
 <script>
 function enviarEmail() {
-  const email = 'juridico@amundialmarcas.com.br';
+  const email = 'juridico@registrodemarcapro.com.br';
   const assunto = 'Consulta de Serviço';
   const corpo = 'Olá, gostaria de solicitar um orçamento.';
   

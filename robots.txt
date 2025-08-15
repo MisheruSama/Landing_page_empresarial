@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://registrodemarcapro.com.br/sitemap.xml
+
+# Crawl-delay (opcional)
+Crawl-delay: 1
+
+# Disallow specific paths (se houver)
+# Disallow: /admin/
+# Disallow: /private/
