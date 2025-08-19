@@ -1800,11 +1800,11 @@ footer::before {
 /* MacBook Air 13" (1440x900) */
 @media screen and (min-width: 1440px) and (max-width: 1440px) and (-webkit-min-device-pixel-ratio: 2) {
   .title__left {
-    transform: translate(calc(-50% - 100px), -80%);
+    transform: translate(calc(-50% - 140px), -80%);
   }
   
   .title__right {
-    transform: translate(calc(-50% + 100px), -80%);
+    transform: translate(calc(-50% + 70px), -80%);
   }
   
   .text__left {
@@ -1913,37 +1913,65 @@ footer::before {
 /* MacBook Pro 14" (1512x982) */
 @media screen and (min-width: 1512px) and (max-width: 1512px) and (-webkit-min-device-pixel-ratio: 2) {
   .title__left {
-    transform: translate(calc(-50% - 10px), -80%);
+    transform: translate(calc(-50% - 85px), -80%);
   }
   
   .title__right {
-    transform: translate(calc(-50% + 10px), -80%);
+    transform: translate(calc(-50% + 85px), -80%);
   }
   
   .text__left {
-    transform: translate(calc(-50% - 160px), -5%);
+    transform: translate(calc(-50% - 125px), -5%);
   }
   
   .text__right {
-    transform: translate(calc(-50% + 180px), -5%);
+    transform: translate(calc(-50% + 145px), -5%);
   }
   
   .left__msg {
-    transform: translate(calc(-50% - 100px), -25%);
+    transform: translate(calc(-50% - 85px), -25%);
   }
   
   .right__msg {
-    transform: translate(calc(-50% + 110px), -25%);
+    transform: translate(calc(-50% + 95px), -25%);
   }
   
   /* Navbar específica para MacBook Pro 14" */
-  .nav__left .nav__links {
-    gap: 0.8rem;
+  .nav-menu {
+    justify-content: space-between;
+    padding: 0.8rem 0.85rem;
   }
-  
-  .nav__right .nav__links {
-    gap: 1.5rem;
+
+  nav {
+    padding-left: 0.9rem;
   }
+
+  .nav-logo { margin-right: 0; }
+
+  .nav__left.nav__links {
+    gap: 0.10rem;
+    justify-content: flex-start;
+    flex: 0 0 auto;
+    min-width: fit-content;
+    white-space: nowrap;
+    padding-right: 0.10rem;
+    margin-left: -20px;
+  }
+
+  .nav__left.nav__links a {
+    font-size: 0.95rem !important;
+    letter-spacing: 0.15px;
+    white-space: nowrap;
+  }
+
+  .nav__left.nav__links li:last-child a { font-size: 0.95rem !important; letter-spacing: 0.15px; }
+
+  .nav__right.nav__links a {
+    font-size: 0.95rem !important;
+    letter-spacing: 0.15px;
+  }
+
+  .nav__right .nav__links { gap: 1.3rem; }
 }
 
 /* MacBook Pro 16" (1728x1117) */
