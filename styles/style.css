@@ -1794,3 +1794,226 @@ footer::before {
     gap: 1rem;
   }
 }
+
+/* ==================== MEDIA QUERIES ESPECÍFICAS PARA MACBOOK ==================== */
+
+/* MacBook Air 13" (1440x900) */
+@media screen and (min-width: 1440px) and (max-width: 1440px) and (-webkit-min-device-pixel-ratio: 2) {
+  .title__left {
+    transform: translate(calc(-50% - 100px), -80%);
+  }
+  
+  .title__right {
+    transform: translate(calc(-50% + 100px), -80%);
+  }
+  
+  .text__left {
+    transform: translate(calc(-50% - 130px), -5%);
+  }
+  
+  .text__right {
+    transform: translate(calc(-50% + 160px), -5%);
+  }
+  
+  .left__msg {
+    transform: translate(calc(-50% - 95px), -30%);
+  }
+  
+  .right__msg {
+    transform: translate(calc(-50% + 105px), -30%);
+  }
+  
+  /* Navbar específica para MacBook Air 13" */
+  .nav__left.nav__links {
+    gap: 0.2rem ;
+  }
+  
+  .nav__right .nav__links {
+    gap: 1.4rem;
+  }
+
+}
+
+/* MacBook Pro 13" (1280x800) */
+@media screen and (min-width: 1280px) and (max-width: 1280px) and (-webkit-min-device-pixel-ratio: 2) {
+  /* Reorganização do título para 1280x800: mantém divisão MUN | DIAL equilibrada */
+  .title__left {
+    transform: translate(calc(-50% - 90px), -78%);
+  }
+  
+  .title__right {
+    transform: translate(calc(-50% + 90px), -78%);
+  }
+  
+  .text__left {
+    transform: translate(calc(-50% - 120px), -2%);
+  }
+  
+  .text__right {
+    transform: translate(calc(-50% + 140px), -2%);
+  }
+  
+  .left__msg {
+    transform: translate(calc(-50% - 78px), -28%);
+  }
+  
+  .right__msg {
+    transform: translate(calc(-50% + 83px), -28%);
+  }
+  
+  /* Navbar específica para MacBook Pro 13" */
+  .nav-menu {
+    justify-content: space-between;
+    padding: 0.8rem 0.85rem; /* ainda menor */
+  }
+
+  /* Aproxima grupo esquerdo da borda */
+  nav {
+    padding-left: 0.9rem; /* antes 2rem (global) */
+  }
+
+  .nav-logo {
+  margin-right: 0; /* encostado */
+  }
+
+  .nav__left.nav__links {
+  gap: 0.001rem; /* ajuste solicitado */
+    justify-content: flex-start;
+    flex: 0 0 auto; /* não expande */
+    min-width: fit-content;
+    white-space: nowrap;
+    padding-right: 0.10rem; /* pequeno respiro */
+    position: static;
+  margin-left: -40px; /* aproxima mais 1px */
+  }
+
+  .nav__left.nav__links a {
+  font-size: 0.95rem !important; /* redução mínima */
+  letter-spacing: 0.15px; /* leve ajuste de leitura */
+    white-space: nowrap;
+    flex-shrink: 0;
+    max-width: none;
+  }
+
+  /* Ajuste específico só para o último item (Registrar Marca) se ainda faltar espaço */
+  .nav__left.nav__links li:last-child a { font-size: 0.95rem !important; letter-spacing: 0.15px; }
+
+  /* Aplica mesma redução à nav direita */
+  .nav__right.nav__links a {
+    font-size: 0.95rem !important;
+    letter-spacing: 0.15px;
+  }
+
+  .nav__right.nav__links {
+    gap: 1.3rem;
+    flex: 0 0 auto;
+  }
+}
+
+/* MacBook Pro 14" (1512x982) */
+@media screen and (min-width: 1512px) and (max-width: 1512px) and (-webkit-min-device-pixel-ratio: 2) {
+  .title__left {
+    transform: translate(calc(-50% - 10px), -80%);
+  }
+  
+  .title__right {
+    transform: translate(calc(-50% + 10px), -80%);
+  }
+  
+  .text__left {
+    transform: translate(calc(-50% - 160px), -5%);
+  }
+  
+  .text__right {
+    transform: translate(calc(-50% + 180px), -5%);
+  }
+  
+  .left__msg {
+    transform: translate(calc(-50% - 100px), -25%);
+  }
+  
+  .right__msg {
+    transform: translate(calc(-50% + 110px), -25%);
+  }
+  
+  /* Navbar específica para MacBook Pro 14" */
+  .nav__left .nav__links {
+    gap: 0.8rem;
+  }
+  
+  .nav__right .nav__links {
+    gap: 1.5rem;
+  }
+}
+
+/* MacBook Pro 16" (1728x1117) */
+@media screen and (min-width: 1728px) and (max-width: 1728px) and (-webkit-min-device-pixel-ratio: 2) {
+  .title__left {
+    transform: translate(calc(-50% - 12px), -80%);
+  }
+  
+  .title__right {
+    transform: translate(calc(-50% + 8px), -80%);
+  }
+  
+  .text__left {
+    transform: translate(calc(-50% - 170px), -5%);
+  }
+  
+  .text__right {
+    transform: translate(calc(-50% + 190px), -5%);
+  }
+  
+  .left__msg {
+    transform: translate(calc(-50% - 110px), -20%);
+  }
+  
+  .right__msg {
+    transform: translate(calc(-50% + 120px), -20%);
+  }
+  
+  /* Navbar específica para MacBook Pro 16" */
+  .nav__left .nav__links {
+    gap: 0.8rem;
+  }
+  
+  .nav__right .nav__links {
+    gap: 1.6rem;
+  }
+}
+
+/* Fallback para outras resoluções de MacBook */
+@media screen and (min-width: 1366px) and (max-width: 1680px) and (-webkit-min-device-pixel-ratio: 2) and (not (min-width: 1280px) and (max-width: 1280px)) and (not (min-width: 1440px) and (max-width: 1440px)) and (not (min-width: 1512px) and (max-width: 1512px)) and (not (min-width: 1728px) and (max-width: 1728px)) {
+  .title__left {
+    transform: translate(calc(-50% - 10px), -80%);
+  }
+  
+  .title__right {
+    transform: translate(calc(-50% + 10px), -80%);
+  }
+  
+  .text__left {
+    transform: translate(calc(-50% - 155px), -5%);
+  }
+  
+  .text__right {
+    transform: translate(calc(-50% + 175px), -5%);
+  }
+  
+  .left__msg {
+    transform: translate(calc(-50% - 100px), -30%);
+  }
+  
+  .right__msg {
+    transform: translate(calc(-50% + 110px), -30%);
+  }
+  
+  /* Navbar genérica para outros MacBooks */
+  .nav__left .nav__links {
+    gap: 0.8rem;
+  }
+  
+  .nav__right .nav__links {
+    gap: 1.5rem;
+  }
+}
