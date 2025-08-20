@@ -1,3 +1,41 @@
+// ========== DROPDOWN SOCIAL MOBILE =============
+document.addEventListener('DOMContentLoaded', () => {
+  const socialDropdown = document.querySelector('.dropdown-social');
+  const socialToggle = document.querySelector('.dropdown-toggle');
+  const navMenu = document.getElementById('nav-menu');
+  if (socialDropdown && socialToggle) {
+    socialToggle.addEventListener('click', function(e) {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        e.stopPropagation();
+        socialDropdown.classList.toggle('open');
+        return false;
+      }
+    }, { passive: false });
+    // Fecha ao clicar fora
+    document.addEventListener('click', function(e) {
+      if (window.innerWidth <= 768 && socialDropdown.classList.contains('open')) {
+        if (!socialDropdown.contains(e.target)) {
+          socialDropdown.classList.remove('open');
+        }
+      }
+    });
+    // Fecha dropdown e menu mobile ao clicar em um link de rede social
+    document.querySelectorAll('.dropdown-menu-social a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        if (window.innerWidth <= 768) {
+          setTimeout(() => {
+            socialDropdown.classList.remove('open');
+            if (navMenu) navMenu.classList.remove('active');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenu) mobileMenu.classList.remove('active');
+            document.body.classList.remove('menu-open');
+          }, 200);
+        }
+      }, { passive: false });
+    });
+  }
+});
 // ==================== PREVENÇÃO DE FLASH DAS ANIMAÇÕES ====================
 // Inicializa as animações assim que o ScrollReveal estiver disponível
 document.addEventListener('DOMContentLoaded', () => {
@@ -129,14 +167,16 @@ function setupMobileMenu() {
     }
   }
 
-  // Fecha o menu quando clica em um link
+  // Fecha o menu quando clica em um link, exceto links de redes sociais
   document.querySelectorAll('.nav__links a').forEach(link => {
-    link.addEventListener('click', () => {
-      mobileMenu.classList.remove('active');
-      navMenu.classList.remove('active');
-      document.body.classList.remove('menu-open'); // Remove classe do body
-      console.log('Menu fechado via link');
-    });
+    if (!link.closest('.dropdown-menu-social')) {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+        navMenu.classList.remove('active');
+        document.body.classList.remove('menu-open'); // Remove classe do body
+        console.log('Menu fechado via link');
+      });
+    }
   });
 
   // Fecha o menu quando clica fora dele
