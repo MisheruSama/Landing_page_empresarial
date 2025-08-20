@@ -6,14 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
     forceMobileFonts();
   }
   
-  // Verifica a posição inicial do scroll
+  // Verifica a posição inicial do scroll para navbar
   const initialScrollY = window.scrollY;
-  
-  // Aplica estado inicial da navbar se necessário
-  const nav = document.querySelector('nav');
-  if (initialScrollY > 50) {
-    nav.classList.add('scrolled');
-  }
   
   // Configura o menu mobile primeiro
   setupMobileMenu();
@@ -27,22 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
       initScrollRevealMobile();
     }, 50);
-    
-    // Para navbar no mobile, força apenas os links, não o menu-toggle
-    const navLinks = document.querySelectorAll('.nav__left, .nav__right');
-    navLinks.forEach(el => {
-      el.style.visibility = 'visible';
-      el.style.opacity = '1';
-      el.style.transform = 'none';
-    });
-    
-    // Garante que o logo também seja visível
-    const navLogo = document.querySelector('.nav-logo');
-    if (navLogo) {
-      navLogo.style.visibility = 'visible';
-      navLogo.style.opacity = '1';
-      navLogo.style.transform = 'none';
-    }
   } else {
     // Só inicia animações em desktop
     setTimeout(() => {
@@ -140,11 +118,14 @@ function setupMobileMenu() {
     if (isActive) {
       mobileMenu.classList.remove('active');
       navMenu.classList.remove('active');
-      console.log('Menu fechado');
+      document.body.classList.remove('menu-open'); // Remove classe do body
+      console.log('Menu fechado - Classe menu-open removida do body');
     } else {
       mobileMenu.classList.add('active');
       navMenu.classList.add('active');
-      console.log('Menu aberto');
+      document.body.classList.add('menu-open'); // Adiciona classe ao body
+      console.log('Menu aberto - Classe menu-open adicionada ao body');
+      console.log('Classes no body:', document.body.className);
     }
   }
 
@@ -153,6 +134,7 @@ function setupMobileMenu() {
     link.addEventListener('click', () => {
       mobileMenu.classList.remove('active');
       navMenu.classList.remove('active');
+      document.body.classList.remove('menu-open'); // Remove classe do body
       console.log('Menu fechado via link');
     });
   });
@@ -162,6 +144,7 @@ function setupMobileMenu() {
     if (!navMenu.contains(e.target) && !mobileMenu.contains(e.target)) {
       mobileMenu.classList.remove('active');
       navMenu.classList.remove('active');
+      document.body.classList.remove('menu-open'); // Remove classe do body
     }
   });
 }
@@ -221,7 +204,39 @@ function initScrollRevealMobile() {
     duration: 1000, // Igual ao desktop
   };
 
-  // Torna os elementos visíveis para o ScrollReveal funcionar
+  // ==================== ANIMAÇÃO NAVBAR MOBILE (mais simples) ====================
+  
+  // Torna a navbar visível para manipulação
+  const nav = document.querySelector('nav');
+  const logo = document.querySelector('.nav-logo');
+  const links = document.querySelector('.nav__links');
+  
+  if (nav && logo && links) {
+    nav.style.visibility = 'visible';
+    
+    // Animação mais direta no mobile
+    setTimeout(() => {
+      // Logo aparece
+      logo.style.opacity = '1';
+      logo.style.transform = 'translateY(0)';
+      logo.style.transition = 'all 0.6s ease-out';
+      
+      // Navbar aparece
+      nav.style.background = 'rgba(255, 255, 255, 0.95)';
+      nav.style.backdropFilter = 'blur(20px)';
+      nav.style.transform = 'translateY(0)';
+      nav.style.transition = 'all 0.6s ease-out';
+    }, 200);
+    
+    // Links aparecem logo depois
+    setTimeout(() => {
+      links.style.opacity = '1';
+      links.style.transform = 'translateY(0)';
+      links.style.transition = 'all 0.4s ease-out';
+    }, 600);
+  }
+
+  // Torna os outros elementos visíveis para o ScrollReveal funcionar
   const elementsToReveal = document.querySelectorAll('.title__left, .title__right, .text__left, .text__right, .left__msg, .right__msg, .saiba');
   elementsToReveal.forEach(el => {
     el.style.visibility = 'visible';
@@ -267,8 +282,55 @@ function initScrollReveal(initialScrollY = 0) {
     duration: 1000,
   };
 
-  // Torna os elementos visíveis para o ScrollReveal funcionar
-  const elementsToReveal = document.querySelectorAll('.title__left, .title__right, .text__left, .text__right, .left__msg, .right__msg, .saiba, .nav__left, .nav__right, .nav-logo');
+  // ==================== ANIMAÇÃO SEQUENCIAL DA NAVBAR ====================
+  // Sequência: Logo aparece no centro → move para posição → fundo se expande → links aparecem
+  
+  const nav = document.querySelector('nav');
+  const logo = document.querySelector('.nav-logo');
+  const links = document.querySelector('.nav__links');
+  
+  if (nav && logo && links) {
+    // Torna a navbar visível para manipulação
+    nav.style.visibility = 'visible';
+    
+    // FASE 1: Logo aparece no centro da tela
+    setTimeout(() => {
+      logo.style.opacity = '1';
+      logo.style.transform = 'translate(-50%, -50%) scale(1.2)';
+      logo.style.transition = 'all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+      logo.style.zIndex = '2000';
+    }, 500);
+    
+    // FASE 2: Logo se move para posição final + navbar se expande
+    setTimeout(() => {
+      // Move logo para posição final na navbar
+      logo.style.position = 'absolute';
+      logo.style.top = '50%';
+      logo.style.left = '2rem';
+      logo.style.transform = 'translateY(-50%) scale(1)';
+      logo.style.zIndex = '1001';
+      
+      // Expande o fundo da navbar de forma horizontal
+      nav.style.background = 'rgba(255, 255, 255, 0.95)';
+      nav.style.backdropFilter = 'blur(20px)';
+      nav.style.borderBottom = '1px solid rgba(0, 123, 255, 0.1)';
+      nav.style.boxShadow = '0 4px 20px rgba(0, 123, 255, 0.1)';
+      nav.style.transform = 'scaleX(1)';
+      nav.style.transformOrigin = 'center';
+      nav.style.transition = 'all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+      
+    }, 1300);
+    
+    // FASE 3: Links aparecem suavemente
+    setTimeout(() => {
+      links.style.opacity = '1';
+      links.style.transform = 'translateY(0)';
+      links.style.transition = 'all 0.8s ease-out';
+    }, 2200);
+  }
+
+  // Torna os outros elementos visíveis para o ScrollReveal dos títulos
+  const elementsToReveal = document.querySelectorAll('.title__left, .title__right, .text__left, .text__right, .left__msg, .right__msg, .saiba');
   elementsToReveal.forEach(el => {
     el.style.visibility = 'visible';
   });
@@ -282,12 +344,12 @@ function initScrollReveal(initialScrollY = 0) {
     nav.classList.add('scrolled');
     
     // Torna elementos da navbar imediatamente visíveis sem animação
-    const navElements = document.querySelectorAll('.nav__left, .nav__right, .nav-logo');
-    navElements.forEach(el => {
-      el.style.visibility = 'visible';
-      el.style.opacity = '1';
-      el.style.transform = 'translateY(0)';
-    });
+    const navElement = document.querySelector('nav');
+    if (navElement) {
+      navElement.style.visibility = 'visible';
+      navElement.style.opacity = '1';
+      navElement.style.transform = 'translateY(0) scale(1)';
+    }
     
     // Aplica estado final do logo imediatamente
     const logo = document.querySelector('.logo-mundial');
@@ -325,29 +387,7 @@ function initScrollReveal(initialScrollY = 0) {
     delay: 1500
   });
 
-  // Só executa animações da navbar se a página não estiver scrollada
-  if (!isPageScrolled) {
-    ScrollReveal().reveal("nav .nav-logo",{
-      ...scrollRevealOption,
-      origin: 'bottom',
-      duration: 1000,
-      delay: 1000
-    });
-
-    ScrollReveal().reveal("nav .nav__left",{
-      ...scrollRevealOption,
-      origin: 'bottom',
-      duration: 1000,
-      delay: 1200
-    });
-
-    ScrollReveal().reveal("nav .nav__right",{
-      ...scrollRevealOption,
-      origin: 'bottom',
-      duration: 1000,
-      delay: 1500
-    });
-  }
+  // Animações antigas da navbar removidas - usando nova animação unificada
 }
 // Navegação suave com animação
 document.querySelectorAll('a[href^="#"], .saiba').forEach(anchor => {
