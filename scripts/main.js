@@ -13,6 +13,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // Configura o menu mobile primeiro
   setupMobileMenu();
   
+  // Inicializa o scroll reveal do título
+  initHeroTitleReveal();
+  
   // Força visibilidade no mobile imediatamente mas com animações rápidas
   if (window.innerWidth <= 768) {
     // No mobile, inicia ScrollReveal com delays muito menores
@@ -115,6 +118,39 @@ window.addEventListener('scroll', () => {
     nav.classList.remove('scrolled');
   }
 });
+
+// ==================== HERO TITLE REVEAL ====================
+function initHeroTitleReveal() {
+  const heroSection = document.querySelector('.hero-central');
+  
+  if (!heroSection) return;
+  
+  // Observador de interseção para detectar quando o hero entra na tela
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Adiciona a classe animate para iniciar as animações
+        entry.target.classList.add('animate');
+        
+        // Remove o observador após a primeira ativação
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.3, // Ativa quando 30% do elemento está visível
+    rootMargin: '0px 0px -50px 0px' // Margem inferior para ativar um pouco antes
+  });
+  
+  // Observa o hero section
+  observer.observe(heroSection);
+  
+  // Para dispositivos que já estão no topo da página
+  if (window.scrollY === 0) {
+    setTimeout(() => {
+      heroSection.classList.add('animate');
+    }, 300); // Delay inicial para carregamento da página
+  }
+}
 
 // ==================== SCROLL REVEAL MOBILE ====================
 function initScrollRevealMobile() {
