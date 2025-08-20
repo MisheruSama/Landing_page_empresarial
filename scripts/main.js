@@ -1,6 +1,11 @@
 // ==================== PREVENÇÃO DE FLASH DAS ANIMAÇÕES ====================
 // Inicializa as animações assim que o ScrollReveal estiver disponível
 document.addEventListener('DOMContentLoaded', () => {
+  // FORÇA MÓVEIS PRIMEIRO - ANTES DE QUALQUER COISA
+  if (window.innerWidth <= 768) {
+    forceMobileFonts();
+  }
+  
   // Verifica a posição inicial do scroll
   const initialScrollY = window.scrollY;
   
@@ -45,6 +50,61 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 100);
   }
 });
+
+// ==================== FORÇA FONTES MÓVEIS ====================
+function forceMobileFonts() {
+  console.log('🔧 FORÇANDO FONTES MÓVEIS - Largura:', window.innerWidth);
+  
+  // Seleciona todos os títulos possíveis
+  const titles = document.querySelectorAll('.title__left, .title__right, h1.title__left, h1.title__right, .hero-central .title__left, .hero-central .title__right');
+  const texts = document.querySelectorAll('.text__left, .text__right, span.text__left, span.text__right, .hero-central .text__left, .hero-central .text__right');
+  const msgs = document.querySelectorAll('.left__msg, .right__msg, h2.left__msg, h2.right__msg, .hero-central .left__msg, .hero-central .right__msg');
+  
+  console.log('📏 Elementos encontrados:', {
+    titles: titles.length,
+    texts: texts.length,
+    msgs: msgs.length
+  });
+  
+  // FORÇA TÍTULOS
+  titles.forEach((el, index) => {
+    el.style.setProperty('font-size', '3rem', 'important');
+    el.style.setProperty('transform', 'none', 'important');
+    el.style.setProperty('zoom', '1', 'important');
+    console.log(`✅ Título ${index + 1} forçado para 3rem`);
+  });
+  
+  // FORÇA TEXTOS
+  texts.forEach((el, index) => {
+    el.style.setProperty('font-size', '1.8rem', 'important');
+    el.style.setProperty('transform', 'none', 'important');
+    el.style.setProperty('zoom', '1', 'important');
+    console.log(`✅ Texto ${index + 1} forçado para 1.8rem`);
+  });
+  
+  // FORÇA MENSAGENS
+  msgs.forEach((el, index) => {
+    el.style.setProperty('font-size', '1.5rem', 'important');
+    el.style.setProperty('transform', 'none', 'important');
+    el.style.setProperty('zoom', '1', 'important');
+    console.log(`✅ Mensagem ${index + 1} forçada para 1.5rem`);
+  });
+  
+  // Verifica se funcionou após 1 segundo
+  setTimeout(() => {
+    titles.forEach((el, index) => {
+      const computedStyle = window.getComputedStyle(el);
+      const fontSize = computedStyle.fontSize;
+      console.log(`🔍 Título ${index + 1} tamanho final: ${fontSize}`);
+      
+      // Se ainda estiver pequeno, força um pouco mais
+      if (parseInt(fontSize) < 35) {
+        console.log('⚠️ Ainda pequeno! Forçando 3.5rem');
+        el.style.setProperty('font-size', '3.5rem', 'important');
+      }
+    });
+  }, 1000);
+}
 
 // ==================== MENU MOBILE ====================
 function setupMobileMenu() {
@@ -370,3 +430,28 @@ document.querySelectorAll('.section').forEach(section => {
   observer.observe(section);
 });
 
+// ==================== FORÇAMENTO CONTÍNUO PARA MOBILE ====================
+if (window.innerWidth <= 768) {
+  // Força novamente a cada 2 segundos por 10 segundos
+  let attempts = 0;
+  const maxAttempts = 5;
+  
+  const forceInterval = setInterval(() => {
+    console.log(`🔄 Tentativa ${attempts + 1} de forçar fontes móveis`);
+    forceMobileFonts();
+    
+    attempts++;
+    if (attempts >= maxAttempts) {
+      clearInterval(forceInterval);
+      console.log('🏁 Finalizou tentativas de força');
+    }
+  }, 2000);
+}
+
+// Event listener para redimensionamento
+window.addEventListener('resize', () => {
+  if (window.innerWidth <= 768) {
+    console.log('📱 Tela redimensionada para mobile, forçando fontes...');
+    forceMobileFonts();
+  }
+});

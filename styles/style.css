@@ -18,6 +18,7 @@
 body {
   font-family: 'Noto Sans', sans-serif;
   background-color: var(--white);
+  font-size: 16px;
 }
 
 /* ==================== ANIMAÇÕES DE FUNDO ==================== */
@@ -102,7 +103,7 @@ body::before {
 .hero-central .text__left,
 .hero-central .text__right {
   opacity: 0;
-  transform: translateX(-40px) scale(0.8);
+  transform: translateX(-40px);
   transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   will-change: transform, opacity;
 }
@@ -117,7 +118,7 @@ body::before {
 
 .hero-central .saiba {
   opacity: 0;
-  transform: translateY(40px) scale(0.9);
+  transform: translateY(40px);
   transition: all 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   will-change: transform, opacity;
 }
@@ -173,9 +174,10 @@ body::before {
   left: unset !important;
   transform: none !important;
   margin: 0;
-  font-size: inherit;
   line-height: 1;
 }
+
+/* Removido font-size: inherit que estava anulando nossos media queries */
 
 .hero-central .title__left {
   color: var(--text-dark);
@@ -274,7 +276,7 @@ body::before {
   cursor: pointer;
   box-shadow: 0 0 50px rgba(0,0,0,0.4);
   border-radius: 10px;
-  transform: translateY(40px) scale(0.9);
+  transform: translateY(40px);
   opacity: 0;
   transition: transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
@@ -303,29 +305,41 @@ body::before {
   }
   .hero-central .text__left,
   .hero-central .text__right {
-    transform: translateX(-30px) scale(0.9);
+    transform: translateX(-30px);
   }
 }
 
 @media (max-width: 600px) {
+  /* REMOVIDO ZOOM QUE CAUSA CONFLITOS */
   .hero-central .title__left,
   .hero-central .title__right {
-    font-size: 7rem;
+    font-size: 3rem !important;
   }
   .hero-central .text__left,
   .hero-central .text__right {
-    font-size: 4rem;
+    font-size: 1.8rem !important;
   }
   .hero-central .left__msg,
   .hero-central .right__msg {
-    font-size: 3rem;
+    font-size: 1.5rem !important;
   }
   .hero-central .saiba {
-    font-size: 1.4rem;
-    min-width: 180px;
+    font-size: 1rem !important;
+    min-width: 120px;
     margin-top: 1.2em;
   }
-  .hero-row { gap: 0.6em; }
+  .hero-row { gap: 0.4em; }
+  
+  /* Força específica para títulos no mobile */
+  .hero-central h1.title__left,
+  .hero-central h1.title__right {
+    font-size: 3rem !important;
+  }
+  
+  .hero-central h2.left__msg,
+  .hero-central h2.right__msg {
+    font-size: 1.5rem !important;
+  }
   
   /* Ajustes de animação para mobile */
   .hero-central {
@@ -337,35 +351,47 @@ body::before {
   }
   .hero-central .text__left,
   .hero-central .text__right {
-    transform: translateY(20px) scale(0.95);
+    transform: translateY(20px);
   }
   .hero-central .left__msg,
   .hero-central .right__msg {
     transform: translateY(20px);
   }
   .hero-central .saiba {
-    transform: translateY(30px) scale(0.95);
+    transform: translateY(30px);
   }
 }
 
 /* Animações mais suaves para dispositivos móveis pequenos */
 @media (max-width: 480px) {
+  /* PIXELS ABSOLUTOS - SEM ZOOM, SEM VW, SEM SCALE */
   .hero-central .title__left,
   .hero-central .title__right {
-    font-size: 3.8rem;
+    font-size: 2.5rem !important;
+    line-height: 1.1 !important;
+    transform: none !important;
   }
+  
   .hero-central .text__left,
   .hero-central .text__right {
-    font-size: 2.2rem;
+    font-size: 1.5rem !important;
+    transform: none !important;
   }
+  
   .hero-central .left__msg,
   .hero-central .right__msg {
-    font-size: 1.4rem;
+    font-size: 1.3rem !important;
+    transform: none !important;
   }
+  
   .hero-central .saiba {
-    font-size: 1.2rem;
-    min-width: 170px;
+    font-size: 1rem !important;
+    min-width: 160px;
+    transform: none !important;
   }
+  }
+  
+  /* Transições rápidas */
   .hero-central .title__left,
   .hero-central .title__right,
   .hero-central .text__left,
@@ -377,23 +403,25 @@ body::before {
   }
 }
 
-/* Para telas muito pequenas - fontes ainda maiores */
+/* Para telas muito pequenas */
 @media (max-width: 380px) {
   .hero-central .title__left,
   .hero-central .title__right {
-    font-size: 3.5rem;
+    font-size: 2.2rem !important;
+    line-height: 1.1 !important;
+    transform: none !important;
   }
+  
   .hero-central .text__left,
   .hero-central .text__right {
-    font-size: 2rem;
+    font-size: 1.3rem !important;
+    transform: none !important;
   }
+  
   .hero-central .left__msg,
   .hero-central .right__msg {
-    font-size: 1.3rem;
-  }
-  .hero-central .saiba {
-    font-size: 1.1rem;
-    min-width: 160px;
+    font-size: 1.1rem !important;
+    transform: none !important;
   }
 }
 
@@ -865,9 +893,6 @@ nav.scrolled .menu-text {
   .feedback-text { font-size: 0.95rem; }
 }
 @media (max-width: 480px) {
-  .hero-central .title__left, .hero-central .title__right { font-size: 1.3rem; }
-  .hero-central .text__left, .hero-central .text__right { font-size: 0.8rem; }
-  .hero-central .left__msg, .hero-central .right__msg { font-size: 0.7rem; }
   .container { padding: 80px 0.5rem 0 0.5rem; }
   .section { margin: 2rem 0.5rem; padding: 1.5rem 1rem; }
 }
@@ -1080,4 +1105,45 @@ footer::before {
   .footer-container { padding: 1rem; }
   .footer-main { gap: 1.5rem; }
   .footer-links-section { gap: 1rem; }
+}
+
+/* CORREÇÃO FINAL PARA MOBILE - REMOVE SCALES PROBLEMÁTICOS */
+@media (max-width: 768px) {
+  /* Máxima especificidade possível */
+  html body main .container .hero-central .title__left,
+  html body main .container .hero-central .title__right,
+  html body header.container .hero-central .title__left,
+  html body header.container .hero-central .title__right,
+  html body .container .hero-central h1.title__left,
+  html body .container .hero-central h1.title__right {
+    font-size: 3rem !important;
+    font-weight: 900 !important;
+    line-height: 1.1 !important;
+    transform: none !important;
+    zoom: 1 !important;
+  }
+  
+  html body main .container .hero-central .text__left,
+  html body main .container .hero-central .text__right,
+  html body header.container .hero-central .text__left,
+  html body header.container .hero-central .text__right,
+  html body .container .hero-central span.text__left,
+  html body .container .hero-central span.text__right {
+    font-size: 1.8rem !important;
+    font-weight: bold !important;
+    transform: none !important;
+    zoom: 1 !important;
+  }
+  
+  html body main .container .hero-central .left__msg,
+  html body main .container .hero-central .right__msg,
+  html body header.container .hero-central .left__msg,
+  html body header.container .hero-central .right__msg,
+  html body .container .hero-central h2.left__msg,
+  html body .container .hero-central h2.right__msg {
+    font-size: 1.5rem !important;
+    font-weight: bold !important;
+    transform: none !important;
+    zoom: 1 !important;
+  }
 }
