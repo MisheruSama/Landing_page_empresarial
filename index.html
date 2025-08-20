@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=yes">
     
+    <!-- YouTube iframe permission -->
+    <meta http-equiv="Content-Security-Policy" content="frame-src 'self' https://www.youtube.com https://youtube.com;">
+    
     <!-- SEO Meta Tags -->
     <title>Mundial Marcas e Patentes | Registro de Marcas e Patentes em Curitiba-PR</title>
     <meta name="description" content="Mundial Marcas e Patentes - Mais de 40 anos de experiência em registro de marcas e patentes. Agente de propriedade industrial INPI. Atendimento online personalizado e Seguro Aprovação exclusivo.">
@@ -15,6 +18,16 @@
     <meta name="geo.placename" content="Curitiba">
     <meta name="geo.position" content="-25.4284;-49.2733">
     <meta name="ICBM" content="-25.4284, -49.2733">
+    
+    <!-- SEO Performance -->
+    <meta name="theme-color" content="#007bff">
+    <meta name="msapplication-TileColor" content="#007bff">
+    
+    <!-- Additional SEO Meta -->
+    <meta name="rating" content="general">
+    <meta name="distribution" content="global">
+    <meta name="revisit-after" content="7 days">
+    <meta name="expires" content="never">
     
     <!-- Open Graph Meta Tags (Facebook, LinkedIn) -->
     <meta property="og:type" content="website">
@@ -37,6 +50,10 @@
     
     <!-- Canonical URL -->
     <link rel="canonical" href="https://registrodemarcapro.com.br">
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"></noscript>
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="imagens/logo_mundial.png">
@@ -118,6 +135,69 @@
     }
     </script>
     
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Início",
+          "item": "https://registrodemarcapro.com.br"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Quem Somos",
+          "item": "https://registrodemarcapro.com.br#quem"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Serviços",
+          "item": "https://registrodemarcapro.com.br#servicos"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Nossa História",
+          "item": "https://registrodemarcapro.com.br#historia"
+        }
+      ]
+    }
+    </script>
+    
+    <!-- Video Schema para SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "VideoObject",
+      "name": "Mundial Marcas e Patentes - Apresentação da Empresa",
+      "description": "Conheça a Mundial Marcas e Patentes, empresa especializada em registro de marcas e patentes com mais de 40 anos de experiência no mercado brasileiro. Saiba mais sobre nossos serviços de propriedade intelectual.",
+      "thumbnailUrl": "https://registrodemarcapro.com.br/imagens/logo_mundial.png",
+      "uploadDate": "2025-01-01T00:00:00Z",
+      "duration": "PT2M30S",
+      "contentUrl": "https://www.youtube.com/watch?v=xtsnSo9e-jc",
+      "embedUrl": "https://www.youtube.com/embed/xtsnSo9e-jc",
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://registrodemarcapro.com.br/#organization",
+        "name": "Mundial Marcas e Patentes",
+        "url": "https://registrodemarcapro.com.br",
+        "logo": "https://registrodemarcapro.com.br/imagens/logo_mundial.png"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://registrodemarcapro.com.br#quem"
+      },
+      "keywords": ["registro de marcas", "registro de patentes", "propriedade intelectual", "INPI", "Mundial Marcas e Patentes"],
+      "category": "Business",
+      "inLanguage": "pt-BR"
+    }
+    </script>
+    
     <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
@@ -126,7 +206,7 @@
         <!-- Logo sempre visível -->
         <div class="nav-logo">
             <a href="#" class="logo" aria-label="Mundial Marcas e Patentes - Página inicial">
-                <img src="imagens/logo_mundial.png" alt="Logo Mundial Marcas e Patentes - Agente de Propriedade Industrial" class="logo-mundial">
+                <img src="imagens/logo_mundial.png" alt="Logo Mundial Marcas e Patentes - Agente de Propriedade Industrial" class="logo-mundial" width="60" height="60">
                 <div class="company-name">
                     <span class="company-name-top">Mundial</span>
                     <span class="company-name-bottom">Marcas e Patentes</span>
@@ -152,9 +232,9 @@
                 <li><a href="#servicos" aria-label="Ir para seção Serviços">Serviços</a></li>
                 <li><a href="#historia" aria-label="Ir para seção Nossa História">Nossa História</a></li>
                 <li><a href="#contrato" aria-label="Ir para seção Contrato">Registrar Marca</a></li>
+                <li><a href="#feedbacks" aria-label="Ir para seção Feedbacks">Feedbacks</a></li>
                 <li><a href="https://www.facebook.com/mundialmarcasepatentes/?locale=pt_BR" target="_blank" rel="noopener noreferrer" aria-label="Visite nossa página no Facebook">Facebook</a></li>
                 <li><a href="https://www.instagram.com/mundialmarcasepatentes" target="_blank" rel="noopener noreferrer" aria-label="Visite nosso perfil no Instagram">Instagram</a></li>
-                <li><a href="#feedbacks" aria-label="Ir para seção Feedbacks">Feedbacks</a></li>
             </ul>
         </div>
     </nav>
@@ -180,25 +260,119 @@
 
     <!-- Seções -->
     <main role="main">
+        <!-- Hero Section com H1 Principal -->
+        <section class="hero-section" aria-labelledby="hero-title">
+            <div class="container">
+                <div class="hero-central">
+                    <div class="hero-row">
+                        <h1 id="hero-title" class="sr-only">Mundial Marcas e Patentes - Registro de Marcas e Patentes em Curitiba</h1>
+                        <h2 class="title__left">MUN</h2>
+                        <h2 class="title__right">DIAL</h2>
+                    </div>
+                    <div class="hero-row">
+                        <span class="text__left">MARCAS E</span>
+                        <span class="text__right">PATENTES</span>
+                    </div>
+                    <div class="hero-row">
+                        <h3 class="left__msg">SEJA DONO D</h3>
+                        <h3 class="right__msg">A SUA MARCA</h3>
+                    </div>
+                    <div class="saiba">
+                        <a href="#quem" class="btn-saiba" aria-label="Saiba mais sobre nossos serviços">Saiba Mais</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="quem" class="section" aria-labelledby="quem-titulo">
             <h2 id="quem-titulo">Quem Somos</h2>
-        <div class="section-content">
-            <p>
-                A Mundial Marcas e Patentes é uma referência confiável e experiente no mundo do registro de marcas e patentes, com mais de 40 anos de compromisso com a proteção dos interesses dos nossos clientes, somos uma equipe apaixonada por ajudar você a alcançar seus objetivos, cada membro da nossa equipe compartilha um compromisso com a sua satisfação e sucesso, aliás, acreditamos que o seu sucesso é o nosso sucesso.
-            </p>
-        </div>
-    </section>
+            <div class="quem-card">
+                <div class="quem-video">
+                    <!-- 
+                    INSTRUÇÕES PARA ADICIONAR O VÍDEO DO YOUTUBE:
+                    1. Substitua "SEU_VIDEO_ID_AQUI" pelo ID do seu vídeo do YouTube
+                    2. Para obter o ID: da URL https://www.youtube.com/watch?v=ABC123XYZ, o ID é "ABC123XYZ"
+                    3. Atualize também o JSON-LD acima com o mesmo ID
+                    4. Exemplo: se o vídeo for https://www.youtube.com/watch?v=dQw4w9WgXcQ
+                       substitua por: dQw4w9WgXcQ
+                    -->
+                    <div class="youtube-container" itemscope itemtype="https://schema.org/VideoObject">
+                        <!-- Thumbnail placeholder enquanto não carrega -->
+                        <div class="video-placeholder" onclick="loadYouTubeVideo(this)" style="cursor: pointer; background: linear-gradient(45deg, #007bff, #0056b3); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem; position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 15px;">
+                            <div style="text-align: center;">
+                                <div style="font-size: 3rem; margin-bottom: 1rem;">▶</div>
+                                <div>Clique para assistir</div>
+                                <div style="font-size: 0.9rem; opacity: 0.8;">Mundial Marcas e Patentes</div>
+                            </div>
+                        </div>
+                        
+                        <iframe 
+                            id="youtube-iframe"
+                            data-src="https://www.youtube.com/embed/xtsnSo9e-jc?rel=0&modestbranding=1&showinfo=0&controls=1&autoplay=1&origin=https://registrodemarcapro.com.br" 
+                            title="Mundial Marcas e Patentes - Apresentação da Empresa"
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            allowfullscreen
+                            aria-label="Vídeo de apresentação da Mundial Marcas e Patentes"
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            style="display: none;"
+                        ></iframe>
+                        
+                        <!-- Schema.org VideoObject para SEO -->
+                        <meta itemprop="name" content="Mundial Marcas e Patentes - Quem Somos">
+                        <meta itemprop="description" content="Conheça a Mundial Marcas e Patentes, empresa especializada em registro de marcas e patentes com mais de 40 anos de experiência">
+                        <meta itemprop="uploadDate" content="2025-01-01">
+                        <meta itemprop="duration" content="PT2M30S">
+                        <span itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+                            <meta itemprop="name" content="Mundial Marcas e Patentes">
+                            <meta itemprop="url" content="https://registrodemarcapro.com.br">
+                        </span>
+                    </div>
+                </div>
+                <div class="quem-content">
+                    <p>
+                        A Mundial Marcas e Patentes é uma referência confiável e experiente no mundo do registro de marcas e patentes, com mais de 40 anos de compromisso com a proteção dos interesses dos nossos clientes, somos uma equipe apaixonada por ajudar você a alcançar seus objetivos, cada membro da nossa equipe compartilha um compromisso com a sua satisfação e sucesso, aliás, acreditamos que o seu sucesso é o nosso sucesso.
+                    </p>
+                    <div class="quem-highlights">
+                        <div class="highlight-item">
+                            <strong>+40 anos</strong>
+                            <span>de experiência</span>
+                        </div>
+                        <div class="highlight-item">
+                            <strong>Agente INPI</strong>
+                            <span>Certificado</span>
+                        </div>
+                        <div class="highlight-item">
+                            <strong>Seguro Aprovação</strong>
+                            <span>Exclusivo</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
     <section id="servicos" class="section" aria-labelledby="servicos-titulo">
-        <h2 id="servicos-titulo">Serviços</h2>
+        <h2 id="servicos-titulo">Nossos Serviços</h2>
         <div class="section-content">
-            <ul>
-                <li>Registro de Marcas</li>
-                <li>Registro de Patentes</li>
-                <li>Registro de Direitos Autorais</li>
-                 <li>Consulta de Viabilidade</li>
-                <li>Gestão de Portfólio de Propriedade Intelectual</li>
-                <li>Monitoramento e Defesa</li>
+            <ul itemscope itemtype="https://schema.org/ItemList">
+                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/Service">
+                    <span itemprop="name">Registro de Marcas</span>
+                </li>
+                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/Service">
+                    <span itemprop="name">Registro de Patentes</span>
+                </li>
+                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/Service">
+                    <span itemprop="name">Registro de Direitos Autorais</span>
+                </li>
+                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/Service">
+                    <span itemprop="name">Consulta de Viabilidade</span>
+                </li>
+                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/Service">
+                    <span itemprop="name">Gestão de Portfólio de Propriedade Intelectual</span>
+                </li>
+                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/Service">
+                    <span itemprop="name">Monitoramento e Defesa</span>
+                </li>
             </ul>
         </div>
     </section>
@@ -286,7 +460,7 @@
                 <!-- Seção da Marca -->
                 <div class="footer-brand">
                     <div class="footer-brand-header">
-                        <img src="imagens/logo_mundial.png" alt="Mundial Marcas e Patentes Logo" class="footer-logo">
+                        <img src="imagens/logo_mundial.png" alt="Mundial Marcas e Patentes Logo" class="footer-logo" width="50" height="50">
                         <h3 itemprop="name">Mundial Marcas e Patentes</h3>
                     </div>
                     <p itemprop="description">
@@ -364,13 +538,29 @@
         </div>
     </footer>
 
-<script src="https://unpkg.com/scrollreveal"></script>
+<!-- Carregamento otimizado de recursos -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"></noscript>
+
 <script src="scripts/main.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollToPlugin.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<script src="https://unpkg.com/scrollreveal" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollToPlugin.min.js" defer></script>
 
 <script>
+// Função para carregar vídeo do YouTube quando clicado
+function loadYouTubeVideo(placeholder) {
+  const iframe = document.getElementById('youtube-iframe');
+  const dataSrc = iframe.getAttribute('data-src');
+  
+  // Remove o placeholder
+  placeholder.style.display = 'none';
+  
+  // Define o src do iframe e mostra
+  iframe.src = dataSrc;
+  iframe.style.display = 'block';
+}
+
 function enviarEmail() {
   const email = 'juridico@registrodemarcapro.com.br';
   const assunto = 'Consulta de Serviço';

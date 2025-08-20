@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
-
 /* ==================== VARIÁVEIS ==================== */
 :root {
   --primary-color: #007BFF;
@@ -19,6 +17,19 @@ body {
   font-family: 'Noto Sans', sans-serif;
   background-color: var(--white);
   font-size: 16px;
+}
+
+/* ==================== ACESSIBILIDADE SEO ==================== */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 /* ==================== ANIMAÇÕES DE FUNDO ==================== */
@@ -56,7 +67,7 @@ body::before {
 .container{
   position: relative;
   isolation: isolate;
-  min-height: 100vh;
+  min-height: 70vh; /* Reduzido de 100vh para 70vh */
   max-width: var(--max-width);
   margin-inline: auto;
   overflow: hidden;
@@ -70,13 +81,13 @@ body::before {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 55vh;
+  min-height: 40vh; /* Reduzido de 55vh para 40vh */
   width: 100%;
   gap: 2rem;
   position: relative;
   z-index: 2;
   perspective: 1000px;
-  margin-top: 12rem; /* Aumentado ainda mais para desktop */
+  margin-top: 14rem; /* Aumentado de 12rem para 14rem - mais um pouquinho em baixo */
 }
 
 .hero-row {
@@ -236,7 +247,7 @@ body::before {
 .hero-central .left__msg {
   color: var(--text-dark);
   font-size: 1.2rem;
-  font-weight: 400;
+  font-weight: 500;
   cursor: default;
 }
 
@@ -251,7 +262,7 @@ body::before {
   border-radius: 4px;
   padding: 0 0.2em;
   font-size: 1.2rem;
-  font-weight: 400;
+  font-weight: 500;
   cursor: default;
 }
 
@@ -273,7 +284,7 @@ body::before {
   font-weight: 600;
   border: none;
   cursor: pointer;
-  box-shadow: 0 0 50px rgba(0,0,0,0.4);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15); /* Sombra mais suave e posicionada para baixo */
   border-radius: 10px;
   transform: translateY(40px);
   opacity: 0;
@@ -283,7 +294,7 @@ body::before {
 .hero-central .saiba:hover {
   background-color: var(--primary-color);
   color: var(--white);
-  box-shadow: 0 8px 25px rgba(0, 123, 255, 0.4);
+  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.3); /* Sombra azul mais suave no hover */
 }
 
 /* Responsividade para o hero central */
@@ -1033,7 +1044,7 @@ nav {
   
   /* Ajusta o espaçamento do hero para mobile */
   .hero-central {
-    margin-top: 3rem; /* Menor no mobile */
+    margin-top: 5rem; /* Aumentado de 4rem para 5rem - mais um pouquinho em baixo */
     text-align: center;
     align-items: center;
     justify-content: center;
@@ -1917,10 +1928,10 @@ nav {
 /* ==================== RESTANTE DO CSS (SEÇÕES, FOOTER, ETC) ==================== */
 
 .section {
-  min-height: 70vh;
+  min-height: 60vh; /* Reduzido de 70vh */
   max-width: 1000px;
-  margin: 5rem auto;
-  padding: 3rem 2.5rem;
+  margin: 3rem auto; /* Reduzido de 5rem */
+  padding: 2.5rem 2rem; /* Reduzido de 3rem 2.5rem */
   position: relative;
   overflow: hidden;
   display: flex;
@@ -2012,6 +2023,140 @@ nav {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+/* ==================== CARD QUEM SOMOS COM VÍDEO ==================== */
+.quem-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 123, 255, 0.1);
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.quem-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.quem-video {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* YouTube container responsivo */
+.youtube-container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; /* Aspect ratio 16:9 */
+  border-radius: 15px;
+  overflow: hidden;
+  background: #000;
+}
+
+.youtube-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 15px;
+  transition: transform 0.3s ease;
+}
+
+.quem-video:hover .youtube-container iframe {
+  transform: scale(1.02);
+}
+
+.quem-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.quem-content p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+.quem-highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+}
+
+.highlight-item {
+  text-align: center;
+  padding: 1rem;
+  background: linear-gradient(135deg, var(--primary-color), #0056b3);
+  color: white;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.highlight-item:hover {
+  transform: translateY(-3px);
+}
+
+.highlight-item strong {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.highlight-item span {
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+
+/* Responsividade do card */
+@media (max-width: 768px) {
+  .quem-card {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2rem;
+  }
+  
+  .quem-highlights {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+  }
+  
+  .highlight-item {
+    padding: 0.75rem 0.5rem;
+  }
+  
+  .highlight-item strong {
+    font-size: 0.95rem;
+  }
+  
+  .highlight-item span {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .quem-highlights {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  
+  .quem-card {
+    padding: 1.5rem;
+  }
 }
 
 /* ==================== CARDS DE SERVIÇOS ==================== */
@@ -2567,7 +2712,10 @@ nav {
 
 /* ==================== MEDIA QUERIES GERAIS ==================== */
 @media (max-width: 1000px) {
-  .section { padding: 2.5rem 1.5rem; }
+  .section { 
+    padding: 2rem 1.5rem; /* Reduzido de 2.5rem */
+    margin: 2rem auto; /* Reduzido para menor espaçamento */
+  }
 }
 
 /* ==================== FOOTER SEO ==================== */
