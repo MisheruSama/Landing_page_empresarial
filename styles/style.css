@@ -334,7 +334,7 @@ body::before {
 .hero-central .title__left {
   color: var(--text-dark);
   font-weight: 800;
-  font-size: 4.8rem;
+  font-size: 5.2rem;
   cursor: default;
 }
 
@@ -349,7 +349,7 @@ body::before {
   border-radius: 10px;
   padding: 0 0.3em;
   font-weight: 800;
-  font-size: 4.8rem;
+  font-size: 5.2rem;
   cursor: default;
 }
 
@@ -362,7 +362,7 @@ body::before {
 .hero-central .text__left {
   color: var(--text-dark);
   font-weight: 500;
-  font-size: 2.2rem;
+  font-size: 2.5rem;
   cursor: default;
 }
 
@@ -377,7 +377,7 @@ body::before {
   border-radius: 7px;
   padding: 0 0.2em;
   font-weight: 500;
-  font-size: 2.2rem;
+  font-size: 2.5rem;
   cursor: default;
 }
 
@@ -415,13 +415,12 @@ body::before {
 
 .hero-central .saiba {
   position: static !important;
-  margin-top: 2em;
+  margin-top: 2rem;
   left: unset !important;
   top: unset !important;
   min-width: 220px;
   font-size: 1.1rem;
   color: var(--text-dark);
-  background-color: var(--white);
   padding: 1rem 2rem;
   font-weight: 600;
   border: none;
@@ -430,13 +429,35 @@ body::before {
   border-radius: 10px;
   transform: translateY(40px);
   opacity: 0;
-  transition: transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  background: linear-gradient(90deg, #fff 60%, #f0f6ff 100%);
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s, transform 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-central .saiba::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.7) 100%);
+  transform: skewX(-20deg);
+  transition: left 0.5s;
+  pointer-events: none;
 }
 
 .hero-central .saiba:hover {
-  background-color: var(--primary-color);
-  color: var(--white);
-  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.3); /* Sombra azul mais suave no hover */
+  background: linear-gradient(135deg, var(--primary-color), var(--text-dark));
+  color: #fff !important;
+  box-shadow: 0 8px 32px rgba(0,123,255,0.18);
+  transform: scale(1.045) translateY(0);
+}
+
+.hero-central .saiba:hover::after {
+  left: 120%;
+
 }
 
 /* Responsividade para o hero central */
@@ -808,7 +829,7 @@ nav {
 }
 
 .nav__links a:hover {
-  text-decoration: underline;
+  color: #00a2ff;
   transform: scale(1.05);
 }
 
@@ -869,145 +890,7 @@ nav {
   }
 }
 
-/* ==================== BOTÕES ESPECIAIS DO LADO DIREITO ==================== */
 
-/* Todos os botões agora usam o estilo padrão - comentados os estilos especiais */
-
-/*
-/* Botão Feedbacks - Design especial */
-/*
-.nav__right li:last-child a {
-  background: linear-gradient(135deg, var(--primary-color), #0056b3);
-  color: white !important;
-  font-weight: 700;
-  padding: 0.875rem 1.75rem;
-  border-radius: 25px;
-  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
-  border: 2px solid transparent;
-  position: relative;
-  min-width: 120px;
-  justify-content: center;
-}
-
-.nav__right li:last-child a::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-  transition: left 0.5s ease;
-}
-
-.nav__right li:last-child a:hover::before {
-  left: 100%;
-}
-
-.nav__right li:last-child a:hover {
-  background: linear-gradient(135deg, #0056b3, #007bff);
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 12px 35px rgba(0, 123, 255, 0.4);
-  border-color: rgba(255, 255, 255, 0.3);
-}
-*/
-
-/*
-/* Botão Nossa História - Design especial para lado esquerdo */
-/*
-.nav__left li:nth-child(3) a {
-  background: linear-gradient(135deg, rgba(0, 123, 255, 0.1), rgba(0, 123, 255, 0.05));
-  border: 2px solid var(--primary-color);
-  color: var(--primary-color) !important;
-  font-weight: 700;
-  padding: 0.875rem 1.5rem;
-  border-radius: 20px;
-  position: relative;
-  overflow: hidden;
-}
-
-.nav__left li:nth-child(3) a::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(0, 123, 255, 0.1), transparent);
-  transition: left 0.6s ease;
-}
-
-.nav__left li:nth-child(3) a:hover::before {
-  left: 100%;
-}
-
-.nav__left li:nth-child(3) a:hover {
-  background: var(--primary-color);
-  color: white !important;
-  transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(0, 123, 255, 0.3);
-}
-*/
-
-/*
-/* Botão Registrar Marca - Design CTA especial */
-/*
-.nav__left li:nth-child(4) a {
-  background: linear-gradient(135deg, #28a745, #20c997);
-  color: white !important;
-  font-weight: 700;
-  padding: 0.875rem 1.75rem;
-  border-radius: 25px;
-  box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
-  border: 2px solid transparent;
-  position: relative;
-  overflow: hidden;
-  min-width: 140px;
-  justify-content: center;
-}
-
-.nav__left li:nth-child(4) a::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-  transition: left 0.5s ease;
-}
-
-.nav__left li:nth-child(4) a:hover::before {
-  left: 100%;
-}
-
-.nav__left li:nth-child(4) a:hover {
-  background: linear-gradient(135deg, #20c997, #17a2b8);
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 12px 35px rgba(40, 167, 69, 0.4);
-  border-color: rgba(255, 255, 255, 0.3);
-}
-*/
-
-/* Todos os botões agora usam estilo padrão - sem diferenciação */
-
-/*
-/* Facebook e Instagram mantêm estilo diferenciado */
-/*
-.nav__links li:nth-child(5) a,
-.nav__links li:nth-child(6) a {
-  background: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 123, 255, 0.2);
-}
-
-.nav__links li:nth-child(5) a:hover,
-.nav__links li:nth-child(6) a:hover {
-  background: rgba(0, 123, 255, 0.1);
-  border-color: var(--primary-color);
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0, 123, 255, 0.2);
-}
-*/
 
 /* Botão de menu mobile - ícone de grade com texto */
 .menu-toggle {
@@ -2232,53 +2115,77 @@ nav {
 
 .section p {
   font-size: 1.1rem;
-  line-height: 1.8;
+  line-height: 1.7;
   color: var(--text-light);
-  @media (max-width: 900px) {
-    nav {
-      margin: 0.3rem 0.75rem;
-      border-radius: 35px;
-      padding: 0.35rem 0;
-    }
-    /* Ajusta o espaçamento do hero para tablets */
-    .hero-central {
-      margin-top: 7rem; /* Intermediário para tablets */
-    }
-    .nav-logo {
-      left: 2rem;
-    }
-    .menu-toggle {
-      right: 2rem;
-      width: 36px;
-      height: 36px;
-    }
-    .logo-mundial {
-      width: 34px;
-      height: 34px;
-    }
-    .company-name-top {
-      font-size: 0.7rem;
-    }
-    .company-name-bottom {
-      font-size: 0.6rem;
-    }
-    .nav__links {
-      gap: 0.8rem;
-      /* Removido justify-content: flex-end e padding-right para não sobrescrever centralização */
-    }
-    .nav__links a {
-      padding: 0.45rem 0.7rem;
-      font-size: 0.8rem;
-    }
-  }
-  backdrop-filter: blur(10px);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 1.5em;
 }
 
-.quem-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+
+/* QUEM SOMOS CARD: vídeo à esquerda, conteúdo à direita */
+.quem-card {
+  display: grid;
+  grid-template-columns: 1.1fr 1.4fr;
+  gap: 2.5rem;
+  
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+  padding: 1.7rem 1.2rem;
+  margin: 1.2rem auto 0 auto;
+  max-width: 950px;
+  transition: box-shadow 0.3s, transform 0.3s;
+  align-items: center;
 }
+
+.quem-video {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  min-width: 280px;
+  max-width: 380px;
+  width: 100%;
+  height: auto;
+  justify-self: start;
+}
+
+.quem-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+@media (max-width: 900px) {
+  .quem-card {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2rem;
+  }
+  .quem-video {
+    max-width: 100%;
+    min-width: 0;
+    margin-bottom: 1.5rem;
+    justify-self: stretch;
+  }
+  .quem-content {
+    align-items: stretch;
+  }
+  .quem-highlights {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+  }
+  .highlight-item {
+    padding: 0.75rem 0.5rem;
+  }
+  .highlight-item strong {
+    font-size: 0.95rem;
+  }
+  .highlight-item span {
+    font-size: 0.8rem;
+  }
+}
+/* Removed orphaned properties that caused a parse error */
 
 .quem-video {
   position: relative;
@@ -2328,9 +2235,12 @@ nav {
 }
 
 .quem-highlights {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 1rem;
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-wrap: wrap;
 }
 
 .highlight-item {
@@ -2367,7 +2277,7 @@ nav {
   }
   
   .quem-highlights {
-    grid-template-columns: repeat(3, 1fr);
+    flex-direction: column;
     gap: 0.75rem;
   }
   

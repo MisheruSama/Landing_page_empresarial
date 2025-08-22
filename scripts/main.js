@@ -1,5 +1,13 @@
 // ========== DROPDOWN SOCIAL MOBILE =============
 document.addEventListener('DOMContentLoaded', () => {
+  // Scroll suave para o topo ao clicar no logo do header
+  const logoLink = document.querySelector('.nav-logo a.logo');
+  if (logoLink) {
+    logoLink.addEventListener('click', function(e) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
   const socialDropdown = document.querySelector('.dropdown-social');
   const socialToggle = document.querySelector('.dropdown-toggle');
   const navMenu = document.getElementById('nav-menu');
